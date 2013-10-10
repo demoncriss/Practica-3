@@ -105,11 +105,11 @@ describe("Clase GameBoards", function(){
 	expect(miBoard.objects[2]).toEqual(undefined);
 
 	});
-/*
+
 	it("overlap", function(){
 		// Comprobamos que draw llama a SpriteSheet.draw con los
 		// parametros adecuados
-		spyOn(miBoard, "overlap");
+		//spyOn(miBoard, "overlap");
 
 		// Necesitamos tener Game.width y Game.height para que el
 		// constructor de PlayerShip pueda inicializar x e y
@@ -117,25 +117,30 @@ describe("Clase GameBoards", function(){
 
 		var miBoard = new GameBoard();
 		var o1 = {
-		x=1,
-		y=2,
-		w=3,
-		h=4};
+		x:1,
+		y:2,
+		w:3,
+		h:4};
 
 		var o2 = {
-		x=1,
-		y=2,
-		w=3,
-		h=4};
+		x:1,
+		y:2,
+		w:3,
+		h:4};
+		var o3 = {
+		x:35,
+		y:64,
+		w:5,
+		h:64};
 	
 		miBoard.add(o1);
 		miBoard.add(o2);
-		miBoard.overlap(o1, o2);
-
-		expect(miBoard.overlap).toHaveBeenCalled();
-	 	expect(miBoard.overlap).toEqual(true);
+		miBoard.add(o3);
+		//expect(miBoard.overlap).toHaveBeenCalled();
+	 	expect(miBoard.overlap(o1, o2)).toEqual(true);
+		expect(miBoard.overlap(o1, o3)).toEqual(false);
 	});
-*/
+
 });
 
 
