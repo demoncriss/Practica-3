@@ -141,6 +141,76 @@ describe("Clase GameBoards", function(){
 		expect(miBoard.overlap(o1, o3)).toEqual(false);
 	});
 
+	it("draw", function(){
+	// Comprobamos que draw llama a SpriteSheet.draw con los
+	// parametros adecuados
+	var miBoard = new GameBoard();
+	spyOn(miBoard, "draw");
+	var o1 = {
+		x:1,
+		y:2,
+		w:3,
+		h:4};
+
+	var o2 = {
+		x:1,
+		y:2,
+		w:3,
+		h:4};
+	var o3 = {
+		x:35,
+		y:64,
+		w:5,
+		h:64};
+
+	
+	
+	miBoard.add(o1);
+	miBoard.add(o2);
+	miBoard.add(o3);
+
+	miBoard.draw(ctx);
+	waits(100);
+	runs(function(){
+		expect(miBoard.draw).toHaveBeenCalled();
+	});
+    });
+
+	it("step", function(){
+	// Comprobamos que draw llama a SpriteSheet.draw con los
+	// parametros adecuados
+	var miBoard = new GameBoard();
+	spyOn(miBoard, "step");
+	var o1 = {
+		x:1,
+		y:2,
+		w:3,
+		h:4};
+
+	var o2 = {
+		x:1,
+		y:2,
+		w:3,
+		h:4};
+	var o3 = {
+		x:35,
+		y:64,
+		w:5,
+		h:64};
+
+	
+	
+	miBoard.add(o1);
+	miBoard.add(o2);
+	miBoard.add(o3);
+
+	miBoard.step(ctx);
+	waits(100);
+	runs(function(){
+		expect(miBoard.step).toHaveBeenCalled();
+	});
+    });
+
 });
 
 
