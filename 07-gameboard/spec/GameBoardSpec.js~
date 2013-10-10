@@ -98,7 +98,6 @@ describe("Clase GameBoards", function(){
 	//mando o3 a la variable de pendientes de borrar
 	miBoard.remove(o3);
 	expect(miBoard.removed[0]).toEqual(87);
-	//borro de objects los objetos que tengo pendientes que borrar en este caso o3.
 	miBoard.finalizeRemoved();
 	expect(miBoard.objects[0]).toEqual(4);
 	expect(miBoard.objects[1]).toEqual(34);
