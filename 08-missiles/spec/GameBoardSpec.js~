@@ -173,7 +173,7 @@ describe("Clase GameBoards", function(){
 	waits(100);
 	runs(function(){
 		expect(miBoard.draw).toHaveBeenCalled();
-
+		expect(true).isTruthy;
 	});
     });
 
