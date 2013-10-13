@@ -49,18 +49,19 @@ describe("Clase PlayerMissile", function(){
 	// parametros adecuados
 
 	
-	var SpriteSheet = {
-  		draw: function() {}
-	};
-	spyOn(SpriteSheet, "draw");	
-	var miMisil = new PlayerMissile(0, 30);
+		SpriteSheet = {
+			map : {missile: { sx: 0, sy: 30, w: 2, h: 10, frames: 1 }},
+			draw: function() {}
+		};
+		spyOn(SpriteSheet, "draw");	
+		var miMisil = new PlayerMissile(0, 30);
 
-	miMisil.draw(ctx);
+		miMisil.draw(ctx);
 
-	expect(SpriteSheet.draw).toHaveBeenCalled();
- 	expect(SpriteSheet.draw.calls[0].args[1]).toEqual("missile");
- 	expect(SpriteSheet.draw.calls[0].args[2]).toEqual(miMisil.x);
- 	expect(SpriteSheet.draw.calls[0].args[3]).toEqual(miMisil.y);
+		expect(SpriteSheet.draw).toHaveBeenCalled();
+		expect(SpriteSheet.draw.calls[0].args[1]).toEqual("missile");
+		expect(SpriteSheet.draw.calls[0].args[2]).toEqual(miMisil.x);
+		expect(SpriteSheet.draw.calls[0].args[3]).toEqual(miMisil.y);
     });
 
 
