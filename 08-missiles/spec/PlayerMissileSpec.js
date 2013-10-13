@@ -63,6 +63,30 @@ describe("Clase PlayerMissile", function(){
 		expect(SpriteSheet.draw.calls[0].args[2]).toEqual(miMisil.x);
 		expect(SpriteSheet.draw.calls[0].args[3]).toEqual(miMisil.y);
     });
+    
+     it("step", function(){
+	// Comprobamos que draw llama a SpriteSheet.draw con los
+	// parametros adecuados
+
+	
+		Board = {
+			remove: function(obj){}
+		};
+		
+		var miMisil = new PlayerMissile(0, 100);
+		miMisil.board=Board;
+		spyOn(Board, "remove");	
+		
+
+		miMisil.step(0.001);
+
+		expect(Board.remove).not.toHaveBeenCalled();
+		
+		miMisil.step(10000000);
+
+		expect(Board.remove).toHaveBeenCalled();
+
+    });
 
 
 
